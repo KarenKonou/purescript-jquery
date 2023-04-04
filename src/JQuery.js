@@ -1,47 +1,47 @@
 /* global exports */
 "use strict";
 
-exports.ready = function(func) {
+export function ready(func) {
     return function() {
         jQuery(document).ready(func);
     };
-};
+}
 
-exports.select = function(selector) {
+export function select(selector) {
     return function() {
         return jQuery(selector);
     };
-};
+}
 
-exports.find = function(selector) {
+export function find(selector) {
     return function(ob) {
         return function() {
             return ob.find(selector);
         };
     };
-};
+}
 
-exports.parent = function(ob) {
+export function parent(ob) {
     return function() {
         return ob.parent();
     };
-};
+}
 
-exports.closest = function(selector) {
+export function closest(selector) {
     return function(ob) {
         return function() {
             return ob.closest(selector);
         };
     };
-};
+}
 
-exports.create = function(html) {
+export function create(html) {
     return function() {
         return jQuery(html);
     };
-};
+}
 
-exports.setAttr = function(attr) {
+export function setAttr(attr) {
     return function(val) {
         return function(ob) {
             return function() {
@@ -49,49 +49,49 @@ exports.setAttr = function(attr) {
             };
         };
     };
-};
+}
 
-exports.getAttrImpl = function(attr) {
+export function getAttrImpl(attr) {
     return function(ob) {
         return function() {
             return ob.attr(attr);
         };
     };
-};
+}
 
-exports.attr = function(attrs) {
+export function attr(attrs) {
     return function(ob) {
         return function() {
             ob.attr(attrs);
         };
     };
-};
+}
 
-exports.css = function(props) {
+export function css(props) {
     return function(ob) {
         return function() {
             ob.css(props);
         };
     };
-};
+}
 
-exports.hasClass = function(cls) {
+export function hasClass(cls) {
     return function(ob) {
         return function() {
             return ob.hasClass(cls);
         };
     };
-};
+}
 
-exports.toggleClass = function(cls) {
+export function toggleClass(cls) {
     return function(ob) {
         return function() {
             ob.toggleClass(cls);
         };
     };
-};
+}
 
-exports.setClass = function(cls) {
+export function setClass(cls) {
     return function(flag) {
         return function(ob) {
             return function() {
@@ -99,9 +99,9 @@ exports.setClass = function(cls) {
             };
         };
     };
-};
+}
 
-exports.setProp = function(p) {
+export function setProp(p) {
     return function(val) {
         return function(ob) {
             return function() {
@@ -109,121 +109,121 @@ exports.setProp = function(p) {
             };
         };
     };
-};
+}
 
-exports.getProp = function(p) {
+export function getProp(p) {
     return function(ob) {
         return function() {
             return ob.prop(p);
         };
     };
-};
+}
 
-exports.append = function(ob1) {
+export function append(ob1) {
     return function(ob) {
         return function() {
             ob.append(ob1);
         };
     };
-};
+}
 
-exports.unsafeAppendHtml = function(s) {
+export function unsafeAppendHtml(s) {
     return function(ob) {
         return function() {
             ob.append(s);
         };
     };
-};
+}
 
-exports.appendText = function(s) {
+export function appendText(s) {
     return function(ob) {
         return function() {
             ob.append(document.createTextNode(s));
         };
     };
-};
+}
 
-exports.body = function() {
+export function body() {
     return jQuery(document.body);
-};
+}
 
-exports.remove = function(ob) {
+export function remove(ob) {
     return function() {
         ob.remove();
     };
-};
+}
 
-exports.clear = function(ob) {
+export function clear(ob) {
     return function() {
         ob.empty();
     };
-};
+}
 
-exports.before = function(ob) {
+export function before(ob) {
     return function(ob1) {
         return function() {
             ob1.before(ob);
         };
     };
-};
+}
 
-exports.getText = function(ob) {
+export function getText(ob) {
     return function() {
         return ob.text();
     };
-};
+}
 
-exports.setText = function(text) {
+export function setText(text) {
     return function(ob) {
         return function() {
             ob.text(text);
         };
     };
-};
+}
 
-exports.getHtml = function(ob) {
+export function getHtml(ob) {
     return function() {
         return ob.html();
     };
-};
+}
 
-exports.setHtml = function(html) {
+export function setHtml(html) {
     return function(ob) {
         return function() {
             ob.html(html);
         };
     };
-};
+}
 
-exports.getValue = function(ob) {
+export function getValue(ob) {
     return function() {
         return ob.val();
     };
-};
+}
 
-exports.setValue = function(val) {
+export function setValue(val) {
     return function(ob) {
         return function() {
             ob.val(val);
         };
     };
-};
+}
 
-exports.toggle = function(ob) {
+export function toggle(ob) {
     return function() {
         ob.toggle();
     };
-};
+}
 
-exports.setVisible = function(flag) {
+export function setVisible(flag) {
     return function(ob) {
         return function() {
             ob.toggle(flag);
         };
     };
-};
+}
 
-exports.toArray = function(ob) {
+export function toArray(ob) {
     return function() {
         var els = ob.toArray();
         var copy = [];
@@ -232,9 +232,9 @@ exports.toArray = function(ob) {
         }
         return copy;
     };
-};
+}
 
-exports.on = function(evt) {
+export function on(evt) {
     return function(act) {
         return function(ob) {
             return function() {
@@ -244,9 +244,9 @@ exports.on = function(evt) {
             };
         };
     };
-};
+}
 
-exports.delegate = function(evt) {
+export function delegate(evt) {
     return function(sel) {
         return function(act) {
             return function(ob) {
@@ -258,87 +258,84 @@ exports.delegate = function(evt) {
             };
         };
     };
-};
+}
 
-
-exports.off = function(evt) {
+export function off(evt) {
     return function(ob) {
         return function() {
             return ob.off(evt);
         };
     };
-};
+}
 
-
-exports.deafen = function(ob) {
+export function deafen(ob) {
     return function() {
         return ob.off();
     };
-};
+}
 
-exports.preventDefault = function(e) {
+export function preventDefault(e) {
     return function() {
         e.preventDefault();
     };
-};
+}
 
-exports.stopPropagation = function(e) {
+export function stopPropagation(e) {
     return function() {
         e.stopPropagation();
     };
-};
+}
 
-exports.stopImmediatePropagation = function(e) {
+export function stopImmediatePropagation(e) {
     return function() {
         e.stopImmediatePropagation();
     };
-};
+}
 
-exports.getTarget = function(e) {
+export function getTarget(e) {
     return function() {
         return jQuery(e.target);
     };
-};
+}
 
-exports.getCurrentTarget = function(e) {
+export function getCurrentTarget(e) {
     return function() {
         return jQuery(e.currentTarget);
     };
-};
+}
 
-exports.getPageX = function(e) {
+export function getPageX(e) {
     return function() {
         return e.pageX;
     };
-};
+}
 
-exports.getPageY = function(e) {
+export function getPageY(e) {
     return function() {
         return e.pageY;
     };
-};
+}
 
-exports.getWhich = function(e) {
+export function getWhich(e) {
     return function() {
         return e.which;
     };
-};
+}
 
-exports.getMetaKey = function(e) {
+export function getMetaKey(e) {
     return function() {
         return e.metaKey;
     };
-};
+}
 
-
-exports.clone = function(ob) {
+export function clone(ob) {
     return function() {
         return ob.clone();
     };
-};
+}
 
-exports.cloneWithDataAndEvents = function(ob) {
+export function cloneWithDataAndEvents(ob) {
     return function() {
         return ob.clone(true);
     };
-};
+}
